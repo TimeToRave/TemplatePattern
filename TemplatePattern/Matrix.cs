@@ -140,9 +140,9 @@ namespace TemplatePattern
         {
             int[,] transpondedMatrix = new int[Data.GetLength(1), Data.GetLength(0)];
             
-            for (int i = 0; i < Data.GetLength(0); i++)
+            for (int i = 0; i < Data.GetLength(1); i++)
             {
-                for (int j = 0; j < Data.GetLength(1); j++)
+                for (int j = 0; j < Data.GetLength(0); j++)
                 {
                     transpondedMatrix[i, j] = Data[j, i];
                 }
