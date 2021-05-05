@@ -150,6 +150,70 @@ namespace TemplatePattern
 
             return new Matrix(transpondedMatrix);
         }
+        
+        public int CalculateDeterminant()
+        {
+            if (!CheckMatrixIsSquare())
+            {
+                throw new InvalidOperationException(
+                    "Вычисление определителя доступно только для квадратных матриц");
+            }
+            if (this.Data.GetLength(0) == 2)
+            {
+                return Data[0, 0] * Data[1, 1] - Data[0, 1] * Data[1, 0];
+            }
+            
+            int result = 0;
+            for (var j = 0; j < Data.GetLength(0); j++)
+            {
+                result += (j % 2 == 1 ? 1 : -1) * Data[1, j] * 
+                          this.CutColumn(j).
+                              CutRow(1).CalculateDeterminant();
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Проверяет является ли матрица квадратной
+        /// </summary>
+        /// <returns></returns>
+        public bool CheckMatrixIsSquare()
+        {
+            return Data.GetLength(0) == Data.GetLength(1);
+        }
+
+        /// <summary>
+        /// Удаляет колонку с заданным номером из матрицы
+        /// </summary>
+        /// <param name="column">Номер удаляемого столбца</param>
+        /// <returns>Сокращенную матрицу</returns>
+        public Matrix CutColumn(int column)
+        {
+            if (column < 0 || column >= Data.GetLength(1))
+            {
+                throw new ArgumentException("Некорректно указан номер столбца");
+            }
+            var result = new Matrix(Data.GetLength(0), Data.GetLength(1) - 1);
+            result.ProcessFunctionOverData((i, j) => 
+                result.Data[i, j] = j < column ? Data[i, j] : Data[i, j + 1]);
+            return result;
+        }
+        
+        /// <summary>
+        /// Удаляет строку с заданным номером из матрицы
+        /// </summary>
+        /// <param name="row">Номер удаляемой строки</param>
+        /// <returns>Сокращенная матрица</returns>
+        public Matrix CutRow(int row)
+        {
+            if (row < 0 || row >= Data.GetLength(0))
+            {
+                throw new ArgumentException("Некорректно указан номер строки");
+            }
+            var result = new Matrix(Data.GetLength(0) - 1, Data.GetLength(1));
+            result.ProcessFunctionOverData((i, j) => result.Data[i, j] = i < row ? Data[i, j] : Data[i + 1, j]);
+            return result;
+        }
             
 
         /// <summary>
@@ -165,10 +229,21 @@ namespace TemplatePattern
                     result += ($"	{Data[i, j]}");
                 }
 
-                result += "|";
+                result += "\n";
             }
 
             return result.Substring(0, result.Length - 1);
+        }
+
+        private void ProcessFunctionOverData(Action<int, int> func)
+        {
+            for (var i = 0; i < Data.GetLength(0); i++)
+            {
+                for (var j = 0; j < Data.GetLength(1); j++)
+                {
+                    func(i, j);
+                }
+            }
         }
     }
 }
