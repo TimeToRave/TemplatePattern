@@ -128,5 +128,111 @@ namespace TemplatePatternTests
 
             Assert.IsTrue(etalon.Equals(matrixSumResult));
         }
+        
+        /// <summary>
+        /// Проверяет метод транспонирования матрицы
+        /// </summary>
+        [Test]
+        public void Matrix_Transposite_2x3_Matrix()
+        {
+            Matrix initial = new Matrix(
+                new int[,]
+                {
+                    { 1, 2, 3 },
+                    { 4, 5, 6 }
+                }
+            );
+            
+            Matrix etalon = new Matrix(
+                new int[,]
+                {
+                    { 1, 4 },
+                    { 2, 5 },
+                    { 3, 6 }
+                }
+            );
+
+            
+            Matrix result = initial.Transposite();
+
+            Assert.IsTrue(etalon.Equals(result));
+        }
+        
+        /// <summary>
+        /// Проверяет метод транспонирования квадратной матрицы
+        /// </summary>
+        [Test]
+        public void Matrix_Transposite_Square_Matrix()
+        {
+            Matrix initial = new Matrix(
+                new int[,]
+                {
+                    { 1, 2, 3 },
+                    { 4, 5, 6 },
+                    { 7, 8, 9 }
+                }
+            );
+            
+            Matrix etalon = new Matrix(
+                new int[,]
+                {
+                    { 1, 4, 7},
+                    { 2, 5 , 8},
+                    { 3, 6, 9 }
+                }
+            );
+
+            
+            Matrix result = initial.Transposite();
+
+            Assert.IsTrue(etalon.Equals(result));
+        }
+        
+        /// <summary>
+        /// Проверяет метод транспонирования единичной матрицы
+        /// </summary>
+        [Test]
+        public void Matrix_Transposite_Single_Matrix()
+        {
+            Matrix initial = new Matrix(
+                new int[,]
+                {
+                    { 1 }
+                }
+            );
+            
+            Matrix etalon = new Matrix(
+                new int[,]
+                {
+                    { 1 }
+                }
+            );
+
+            
+            Matrix result = initial.Transposite();
+
+            Assert.IsTrue(etalon.Equals(result));
+        }
+        
+        /// <summary>
+        /// Проверяет метод транспонирования пустой матрицы
+        /// </summary>
+        [Test]
+        public void Matrix_Transposite_Zero_Matrix()
+        {
+            Matrix initial = new Matrix(
+                new int[0,0]
+            );
+            
+            Matrix etalon = new Matrix(
+                new int[0,0]
+            );
+
+            
+            Matrix result = initial.Transposite();
+
+            Assert.IsTrue(etalon.Equals(result));
+        }
+        
     }
 }
