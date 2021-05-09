@@ -227,17 +227,23 @@ namespace TemplatePattern
         public override string ToString()
         {
             string result = string.Empty;
+
+            if (Data.GetLength(0) == 0 || Data.GetLength(1) == 0)
+            {
+                return result;
+            }
+            
             for (int i = 0; i < SizeX; i++)
             {
                 for (int j = 0; j < SizeY; j++)
                 {
-                    result += ($"	{Data[i, j]}");
+                    result += ($" {Data[i, j]}");
                 }
 
-                result += "\n";
+                result += " |\n";
             }
 
-            return result.Substring(0, result.Length - 1);
+            return result.Substring(0, result.Length - 2);
         }
 
         private void ProcessFunctionOverData(Action<int, int> func)
