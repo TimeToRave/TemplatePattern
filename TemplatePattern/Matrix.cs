@@ -158,7 +158,12 @@ namespace TemplatePattern
                 throw new InvalidOperationException(
                     "Вычисление определителя доступно только для квадратных матриц");
             }
-            if (this.Data.GetLength(0) == 2)
+            
+            if (Data.GetLength(0) == 1)
+            {
+                return 1;
+            }
+            if (Data.GetLength(0) == 2)
             {
                 return Data[0, 0] * Data[1, 1] - Data[0, 1] * Data[1, 0];
             }
@@ -167,8 +172,8 @@ namespace TemplatePattern
             for (var j = 0; j < Data.GetLength(0); j++)
             {
                 result += (j % 2 == 1 ? 1 : -1) * Data[1, j] * 
-                          this.CutColumn(j).
-                              CutRow(1).CalculateDeterminant();
+                        CutColumn(j)
+                        .CutRow(1).CalculateDeterminant();
             }
             return result;
         }
