@@ -502,5 +502,95 @@ namespace TemplatePatternTests
             
             Assert.IsTrue(initial.CheckMatrixIsSquare());
         }
+        
+        /// <summary>
+        /// Вычисление определителя матрицы
+        /// Проверка для квадратной матрицы 3x3
+        /// </summary>
+        [Test]
+        public void Matrix_CalculateDeterminant_Square_Matrix()
+        {
+            Matrix initial = new Matrix(
+                new int[,]
+                {
+                    {1, 4, 3},
+                    {6, 2, 6},
+                    {10, 10, 3}
+                }
+            );
+            
+            Assert.IsTrue(initial.CalculateDeterminant() == 234);
+        }
+        
+        /// <summary>
+        /// Вычисление определителя матрицы
+        /// Проверка для квадратной матрицы 2x2
+        /// </summary>
+        [Test]
+        public void Matrix_CalculateDeterminant_2x2_Matrix()
+        {
+            Matrix initial = new Matrix(
+                new int[,]
+                {
+                    {2, 1},
+                    {1, 2}
+                }
+            );
+            
+            Assert.IsTrue(initial.CalculateDeterminant() == 3);
+        }
+        
+        /// <summary>
+        /// Вычисление определителя матрицы
+        /// Проверка для единичной матрицы00000
+        /// </summary>
+        [Test]
+        public void Matrix_CalculateDeterminant_Single_Matrix()
+        {
+            Matrix initial = new Matrix(
+                new int[,]
+                {
+                    {2} 
+                }
+            );
+            
+            Assert.IsTrue(initial.CalculateDeterminant() == 1);
+        }
+        
+        /// <summary>
+        /// Вычисление определителя матрицы
+        /// Проверка для пустой матрицы
+        /// </summary>
+        [Test]
+        public void Matrix_CalculateDeterminant_Zero_Matrix()
+        {
+            Matrix initial = new Matrix(
+                new int[0,0]
+            );
+            
+            Assert.IsTrue(initial.CalculateDeterminant() == 0);
+        }
+
+        /// <summary>
+        /// Проверяет метод вычисления определителя матрицы
+        /// На вход подается не квадратная матрица
+        /// </summary>
+        [Test] public void Matrix_CalculateDeterminant_NonSquare_Matrix()
+        {
+            Matrix initial = new Matrix(
+                new int[,]
+                {
+                    {1, 2},
+                    {4, 5},
+                    {7, 8}
+                }
+            );
+
+            var exception = Assert.Throws<InvalidOperationException>(() =>
+                initial.CalculateDeterminant()
+            );
+
+            Assert.That(exception.Message, Is.EqualTo("Вычисление определителя доступно только для квадратных матриц"));
+        }
     }
 }
