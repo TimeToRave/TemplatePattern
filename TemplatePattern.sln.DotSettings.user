@@ -5,6 +5,8 @@
       &lt;TestId&gt;NUnit3x::483B1C4C-C19C-48C4-821E-39BB37FBC1D8::net5.0::TemplatePatternTests.MatrixTests&lt;/TestId&gt;&#xD;
       &lt;TestId&gt;NUnit3x::483B1C4C-C19C-48C4-821E-39BB37FBC1D8::net5.0::TemplatePatternTests.MatrixAdderCalculatorTests&lt;/TestId&gt;&#xD;
       &lt;TestId&gt;NUnit3x::483B1C4C-C19C-48C4-821E-39BB37FBC1D8::net5.0::TemplatePatternTests.MatrixDetermainantCalculator.MatrixDeterminantCalculator_OperateMatrix_TwoMatrices&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::483B1C4C-C19C-48C4-821E-39BB37FBC1D8::net5.0::TemplatePatternTests.MatrixOperationChooserTests.MatrixOperationChooser_Transponite&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::483B1C4C-C19C-48C4-821E-39BB37FBC1D8::net5.0::TemplatePatternTests.MatrixOperationChooserTests&lt;/TestId&gt;&#xD;
     &lt;/TestAncestor&gt;&#xD;
     &lt;ProjectFile&gt;483B1C4C-C19C-48C4-821E-39BB37FBC1D8/f:MatrixTransponiteCalculatorTests.cs&lt;/ProjectFile&gt;&#xD;
   &lt;/Or&gt;&#xD;
