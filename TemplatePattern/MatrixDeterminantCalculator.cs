@@ -5,6 +5,11 @@ namespace TemplatePattern
 {
     public class MatrixDeterminantCalculator : MatrixCalculator
     {
+        /// <summary>
+        /// Подсчитывает определитель матриц
+        /// </summary>
+        /// <param name="matrices">Массив матриц</param>
+        /// <returns>Определители матриц</returns>
         protected override Matrix[] OperateMatrix(Matrix[] matrices)
         {
             List<Matrix> result = new List<Matrix>();

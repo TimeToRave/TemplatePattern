@@ -3,9 +3,22 @@ using System.Text;
 
 namespace TemplatePattern
 {
-        public abstract class MatrixCalculator
+    public abstract class MatrixCalculator
     {
         protected abstract Matrix[] OperateMatrix(Matrix[] matrices);
+
+
+        /// <summary>
+        /// Выполняет операции над матрицами
+        /// </summary>
+        /// <param name="inputFilePath">Название входного файла</param>
+        /// <param name="outputFilePath">Название итогового файла</param>
+        public void CalculateMatrix(string inputFilePath, string outputFilePath)
+        {
+            Matrix[] matrices = PrepareMatrix(inputFilePath);
+            Matrix[] result = OperateMatrix(matrices);
+            SaveMatrix(result, outputFilePath);
+        }
 
         /// <summary>
         /// Считывает матрицу из указанного файла
@@ -43,18 +56,6 @@ namespace TemplatePattern
 
             FileOperator fileOperator = new FileOperator();
             fileOperator.WriteTextToFile(outputFilePath, sb.ToString());
-        }
-
-        /// <summary>
-        /// Выполняет операции над матрицами
-        /// </summary>
-        /// <param name="inputFilePath">Название входного файла</param>
-        /// <param name="outputFilePath">Название итогового файла</param>
-        public void CalculateMatrix(string inputFilePath, string outputFilePath)
-        {
-            Matrix[] matrices = PrepareMatrix(inputFilePath);
-            Matrix[] result = OperateMatrix(matrices);
-            SaveMatrix(result, outputFilePath);
         }
     }
 }
