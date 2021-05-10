@@ -10,7 +10,7 @@ namespace TemplatePattern
         /// </summary>
         /// <param name="matrices">Массив матриц</param>
         /// <returns>Определители матриц</returns>
-        protected override Matrix[] OperateMatrix(Matrix[] matrices)
+        public override Matrix[] OperateMatrix(Matrix[] matrices)
         {
             List<Matrix> result = new List<Matrix>();
             foreach (var matrix in matrices)

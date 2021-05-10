@@ -5,7 +5,7 @@ namespace TemplatePattern
 {
     public abstract class MatrixCalculator
     {
-        protected abstract Matrix[] OperateMatrix(Matrix[] matrices);
+        public abstract Matrix[] OperateMatrix(Matrix[] matrices);
 
 
         /// <summary>

@@ -9,7 +9,7 @@ namespace TemplatePattern
         /// </summary>
         /// <param name="matrices">Массив матриц</param>
         /// <returns>Транспонированные матрицы</returns>
-        protected override Matrix[] OperateMatrix(Matrix[] matrices)
+        public override Matrix[] OperateMatrix(Matrix[] matrices)
         {
             return matrices.Select(matrix => matrix.Transposite()).ToArray();
         }

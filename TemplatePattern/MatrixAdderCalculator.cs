@@ -7,7 +7,7 @@
         /// </summary>
         /// <param name="matrices">Массив матриц</param>
         /// <returns>Сумма</returns>
-        protected override Matrix[] OperateMatrix(Matrix[] matrices)
+        public override Matrix[] OperateMatrix(Matrix[] matrices)
         {
             var result = matrices[0];
             for (int i = 1; i < matrices.Length; i++)
