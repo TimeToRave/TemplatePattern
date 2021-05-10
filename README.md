@@ -1,5 +1,7 @@
 # Шаблонный метод
 
+[![Tests](https://github.com/TimeToRave/TemplatePattern/actions/workflows/dotnet.yml/badge.svg)](https://github.com/TimeToRave/TemplatePattern/actions/workflows/dotnet.yml)
+
 ## Задача
 
 Реализовать программу, которая выполняет следующие операции над матрицами:
